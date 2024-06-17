@@ -13,14 +13,16 @@ class User
     private $id;
 
     /** @MongoDB\Field(type="string") */
-    private $username;
+    private $name;
 
     /** @MongoDB\Field(type="string") */
-    private $email;
+    private $mail;
 
     /** @MongoDB\Field(type="string") */
     private $password;
 
+      /** @MongoDB\Field(type="date") */
+      private $fecha_nacimiento;
     // Getters and setters...
 
     public function getId(): ?string
@@ -28,25 +30,25 @@ class User
         return $this->id;
     }
 
-    public function getUsername(): ?string
+    public function getName(): ?string
     {
-        return $this->username;
+        return $this->name;
     }
 
-    public function setUsername(string $username): self
+    public function setName(string $name): self
     {
-        $this->username = $username;
+        $this->name = $name;
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getMail(): ?string
     {
-        return $this->email;
+        return $this->mail;
     }
 
-    public function setEmail(string $email): self
+    public function setMail(string $mail): self
     {
-        $this->email = $email;
+        $this->mail = $mail;
         return $this;
     }
 
@@ -58,6 +60,18 @@ class User
     public function setPassword(string $password): self
     {
         $this->password = $password;
+        return $this;
+    }
+
+    public function getFechaNacimiento(): ?\DateTime
+    {
+        return $this->fecha_nacimiento;
+    }
+
+    public function setFechaNacimiento(\DateTime $fecha_nacimiento): self
+    {
+        $this->fecha_nacimiento = $fecha_nacimiento;
+
         return $this;
     }
 }
